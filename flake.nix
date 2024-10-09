@@ -19,5 +19,19 @@
         inputs.home-manager.nixosModules.default
       ];
     };
+
+  homeConfigurations = {
+      host1_user = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.x86_64-linux;
+        homeDirectory = "/home/matt";  # Replace with actual username
+        user = "matt";  # Replace with actual username
+        modules = [
+          ./hosts/matt/home.nix  # Link to the host-specific home.nix
+        ];
+      };
+      };
   };
+
+
+
 }
