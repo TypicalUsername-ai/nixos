@@ -21,6 +21,9 @@ environment.systemPackages = with pkgs; [
 	starship
 	fastfetch
 	zoxide
+	starship
+	fzf
+	ripgrep
 ];
 
 environment.variables.EDITOR = "nvim";

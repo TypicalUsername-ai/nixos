@@ -17,19 +17,13 @@
       modules = [
         ./hosts/wsl/configuration.nix
         home-manager.nixosModules.home-manager
+	{
+
+		home-manager.users.matt = import ./home.nix;
+
+	}
       ];
     };
-
-  homeConfigurations = {
-      wsl = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.packages.x86_64-linux;
-        modules = [
-          ./hosts/matt/home.nix  # Link to the host-specific home.nix
-        ];
-      };
-      };
-  };
-
-
+    };
 
 }
