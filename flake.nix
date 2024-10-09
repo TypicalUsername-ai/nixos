@@ -18,9 +18,7 @@
         ./hosts/wsl/configuration.nix
         home-manager.nixosModules.home-manager
 	{
-
 		home-manager.users.matt = import ./home.nix;
-
 	}
       ];
     };
