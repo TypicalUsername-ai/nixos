@@ -16,15 +16,13 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/wsl/configuration.nix
-        inputs.home-manager.nixosModules.default
+        home-manager.nixosModules.home-manager
       ];
     };
 
   homeConfigurations = {
-      host1_user = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.x86_64-linux;
-        homeDirectory = "/home/matt";  # Replace with actual username
-        user = "matt";  # Replace with actual username
+      wsl = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.packages.x86_64-linux;
         modules = [
           ./hosts/matt/home.nix  # Link to the host-specific home.nix
         ];
