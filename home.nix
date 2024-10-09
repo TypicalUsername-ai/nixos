@@ -31,14 +31,16 @@
     # TODO add your custom bashrc here
     bashrcExtra = ''
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
+      eval $(zoxide init bash)
+      echo Hello, You!
     '';
 
     # set some aliases, feel free to add more or remove some
     shellAliases = {
       k = "kubectl";
-      ll = "ls -alF";
-      la = "ls -A";
-      l = "ls -CF";
+      ll = "eza -alF";
+      la = "eza -A";
+      l = "eza -CF";
       ls = "eza";
       cat = "bat";
       du = "dust";
