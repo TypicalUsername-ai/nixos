@@ -33,7 +33,7 @@
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
       eval "$(zoxide init bash)"
       echo Hello, You!
-      if [ -z "${SSH_AGENT_PID}" ]; then
+      if [ -z "$\{SSH_AGENT_PID\}" ]; then
     echo starting ssh-agent
     eval "$(ssh-agent -s)"
     echo adding ssh identity
@@ -58,7 +58,7 @@ fi
       grep = "rg";
       python = "python3";
       dc = "docker compose";
-      shellfind = "cat ~/.bash_history | fzf";
+      shellfind = "cat ~/.bash_history | fzf | sh";
       cd = "z";
       cdi = "zi";
     };
