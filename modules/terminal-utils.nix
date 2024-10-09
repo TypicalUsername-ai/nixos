@@ -24,6 +24,7 @@ environment.systemPackages = with pkgs; [
 	starship
 	fzf
 	ripgrep
+    zellij
 ];
 
 environment.variables.EDITOR = "nvim";
