@@ -12,10 +12,17 @@
   ./hardware-configuration.nix
   ../../modules/terminal-utils.nix
   ../../modules/languages.nix
-  ../../modules/neovim.nix
+  ../../modules/devtools.nix
   inputs.nixos-wsl.nixosModules.wsl
     # include NixOS-WSL modules
   ];
+
+  users.users.matt = {
+	isNormalUser = true;
+	home = "/home/matt";
+	extraGroups = [ "wheel" ];
+
+  };
 
   wsl = { 
   enable = true;

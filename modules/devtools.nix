@@ -4,6 +4,7 @@
 
 environment.systemPackages = with pkgs; [
 	neovim
+	docker
 ];
 
 environment.variables.EDITOR = "nvim";
