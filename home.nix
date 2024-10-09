@@ -33,6 +33,17 @@
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
       eval "$(zoxide init bash)"
       echo Hello, You!
+      if [ -z "${SSH_AGENT_PID}" ]; then
+    echo starting ssh-agent
+    eval "$(ssh-agent -s)"
+    echo adding ssh identity
+    ssh-add ~/.ssh/id_ed25519
+else 
+    echo ssh-agent already running $SSH_AGENT_PID
+fi
+      if [ "$SHLVL" == "1" ]; then
+          fastfetch
+    fi
     '';
 
     # set some aliases, feel free to add more or remove some
