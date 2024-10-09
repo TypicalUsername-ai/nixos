@@ -12,6 +12,7 @@
   ./hardware-configuration.nix
   ../../modules/terminal-utils.nix
   ../../modules/languages.nix
+  ../../modules/neovim.nix
   inputs.nixos-wsl.nixosModules.wsl
     # include NixOS-WSL modules
   ];

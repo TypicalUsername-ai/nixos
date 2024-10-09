@@ -11,13 +11,15 @@
 
 environment.systemPackages = with pkgs; [
 	git
-	neovim
 	wget
 	curl
 	gitui
 	eza
 	bat
 	dust
+	starship
+	fastfetch
+	zoxide
 ];
 
 environment.variables.EDITOR = "nvim";
