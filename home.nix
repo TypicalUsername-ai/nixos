@@ -11,6 +11,11 @@
     enable = true;
     userName = "TypicalUsername-ai";
     userEmail = "mati.domalewski@gmail.com";
+    aliases = {
+            s = "status";
+            c = "checkout";
+            b = "branch";
+        };
   };
 
   # starship - an customizable prompt for any shell
