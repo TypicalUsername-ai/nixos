@@ -13,6 +13,7 @@
   ../../modules/terminal-utils.nix
   ../../modules/languages.nix
   ../../modules/devtools.nix
+  ../../modules/cybersec.nix
   inputs.nixos-wsl.nixosModules.wsl
     # include NixOS-WSL modules
   ];
