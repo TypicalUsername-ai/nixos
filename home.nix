@@ -18,6 +18,10 @@
         };
   };
 
+  programs.zoxide = {
+        enableBashIntegration = true;
+      };
+
   # starship - an customizable prompt for any shell
   programs.starship = {
     enable = true;
@@ -36,7 +40,6 @@
     # TODO add your custom bashrc here
     bashrcExtra = ''
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
-      eval "$(zoxide init bash)"
       echo Hello, You!
       if [ -z "$SSH_AGENT_PID" ]; then
         echo starting ssh-agent
