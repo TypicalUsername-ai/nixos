@@ -19,10 +19,15 @@
   };
 
   programs.zoxide = {
+      enable = true;
         enableBashIntegration = true;
       };
 
 programs.btop = {
+    enable = true;
+    };
+
+services.ssh-agent = {
     enable = true;
     };
 
@@ -45,14 +50,7 @@ programs.btop = {
     bashrcExtra = ''
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
       echo Hello, You!
-      if [ -z "$SSH_AGENT_PID" ]; then
-        echo starting ssh-agent
-        eval "$(ssh-agent -s)"
-        ssh-add ~/.ssh/id_ed25519
-    else 
-        echo ssh-agent already running $SSH_AGENT_PID
-    fi
-      if [ "$SHLVL" == "1" ]; then
+            if [ "$SHLVL" == "1" ]; then
           fastfetch
     fi
     '';
