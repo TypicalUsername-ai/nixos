@@ -4,7 +4,6 @@
 
 environment.systemPackages = with pkgs; [
     nmap
-    ghidra
 ];
 
 environment.variables.EDITOR = "nvim";
