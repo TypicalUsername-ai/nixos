@@ -52,6 +52,7 @@ services.ssh-agent = {
       echo Hello, You!
             if [ "$SHLVL" == "1" ]; then
           fastfetch
+          echo "$(eval ssh-agent)"
           ssh-add $HOME/.ssh/*
     fi
     '';
