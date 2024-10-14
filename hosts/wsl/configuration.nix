@@ -28,6 +28,9 @@
   wsl = { 
   enable = true;
   defaultUser = "matt";
+  docker-desktop = {
+        enable = true;
+      };
   };
 
 nix.settings.experimental-features = [ 
