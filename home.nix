@@ -1,11 +1,7 @@
+{config, pkgs, ... }:
 {
-  # Fetch and clone the Neovim config repository
-  home.file.".config/nvim".source = builtins.fetchGit {
-    url = "https://github.com/TypicalUsername-ai/neovim-setup.git";  # Replace with your repo URL
-    ref = "master";  # Replace with your branch, tag, or commit
-  };
 
-
+    imports = [ ./modules/nvim.nix ];
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
@@ -53,7 +49,7 @@ services.ssh-agent = {
             if [ "$SHLVL" == "1" ]; then
           fastfetch
           eval "$(ssh-agent)"
-          ssh-add $HOME/.ssh/*
+          ssh-add $HOME/.ssh/id_ed25519
     fi
     '';
 
