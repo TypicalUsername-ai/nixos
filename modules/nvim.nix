@@ -2,8 +2,8 @@
 {
 
 # Fetch and clone the Neovim config repository
-	home.file.".config/nvim".source = builtins.fetchGit {
-	url = "https://github.com/TypicalUsername-ai/neovim-setup.git";  # Replace with your repo URL
+home.file.".config/nvim".source = builtins.fetchGit {
+	url = "https://github.com/TypicalUsername-ai/neovim-setup.git";
 	ref = "nixos";  # Replace with your branch, tag, or commit
   };
 
@@ -43,7 +43,7 @@
           }
         },
       dev = {
-        path = "${pkgs.vimUtils.packDir config.home-manager.users.USERNAME.programs.neovim.finalPackage.passthru.packpathDirs}/pack/myNeovimPackages/start",
+        path = "${pkgs.vimUtils.packDir home.users.USERNAME.programs.neovim.finalPackage.passthru.packpathDirs}/pack/myNeovimPackages/start",
       },
       install = {
         -- Safeguard in case we forget to install a plugin with Nix
