@@ -20,5 +20,8 @@
         trouble-nvim
         which-key-nvim
       ];
+	extraLuaConfig = ''
+	vim.g.mapleader = " "
+	'';
     };
   }
