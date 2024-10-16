@@ -1,10 +1,10 @@
-{ config, pkgs, ...}:
+{ config, pkgs, home-manager,...}:
 {
 
 # Fetch and clone the Neovim config repository
 home.file.".config/nvim".source = builtins.fetchGit {
 	url = "https://github.com/TypicalUsername-ai/neovim-setup.git";
-	ref = "nixos";  # Replace with your branch, tag, or commit
+	ref = "master";  # Replace with your branch, tag, or commits
   };
 
     programs.neovim = {
@@ -26,6 +26,7 @@ home.file.".config/nvim".source = builtins.fetchGit {
         nvim-treesitter.withAllGrammars
         trouble-nvim
         which-key-nvim
+	lazy-nvim
       ];
       extraLuaConfig = ''
       	require("config.keymaps")
@@ -42,9 +43,6 @@ home.file.".config/nvim".source = builtins.fetchGit {
             reset = false,
           }
         },
-      dev = {
-        path = "${pkgs.vimUtils.packDir home.users.USERNAME.programs.neovim.finalPackage.passthru.packpathDirs}/pack/myNeovimPackages/start",
-      },
       install = {
         -- Safeguard in case we forget to install a plugin with Nix
         missing = false,
