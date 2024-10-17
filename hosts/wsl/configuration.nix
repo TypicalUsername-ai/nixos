@@ -14,6 +14,7 @@
   ../../modules/languages.nix
   ../../modules/devtools.nix
   ../../modules/cybersec-cli.nix
+  ../../modules/systemd.nix
   inputs.nixos-wsl.nixosModules.wsl
     # include NixOS-WSL modules
   ];
