@@ -7,7 +7,6 @@ environment.systemPackages = with pkgs; [
 	deno
     ## rust
 	rustup
-    rust-analyzer
     ## python
 	python3
     ## c++
