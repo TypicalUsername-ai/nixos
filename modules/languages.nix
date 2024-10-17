@@ -3,9 +3,14 @@
 {
 
 environment.systemPackages = with pkgs; [
+    ## Javascript / Typescript
 	deno
+    ## rust
 	rustup
+    rust-analyzer
+    ## python
 	python3
+    ## c++
     clang
 ];
 
