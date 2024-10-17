@@ -2,10 +2,11 @@
 {
 
 # Fetch and clone the Neovim config repository
-home.file.".config/nvim".source = pkgs.fetchgit {
-	url = "https://github.com/TypicalUsername-ai/neovim-setup.git";
-	rev = "master";  # Replace with your branch, tag, or commits
-	sha256 = "53afec89d0b8547f67e1cc14387f8beba649137e";
+home.file.".config/nvim".source = pkgs.fetchFromGitHub {
+	owner = "TypicalUsername-ai";
+	repo = "neovim-setup";
+	rev = "stable";  # Replace with your branch, tag, or commits
+	sha256 = "sha256-3AdwMszJ0quJC2Ovs/UBsqtsWf2WuT67z1DMZ2H8TJs=";
   };
 
     programs.neovim = {
