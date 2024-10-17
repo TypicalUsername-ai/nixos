@@ -10,7 +10,7 @@ home = {
 home.file.".config/nvim".source = pkgs.fetchFromGitHub {
 	owner = "TypicalUsername-ai";
 	repo = "neovim-setup";
-	rev = "stable";  # Replace with your branch, tag, or commits
+	rev = "v1.1";  # Replace with your branch, tag, or commits
 	sha256 = "sha256-3AdwMszJ0quJC2Ovs/UBsqtsWf2WuT67z1DMZ2H8TJs=";
   };
 
