@@ -11,6 +11,7 @@
 
 environment.systemPackages = with pkgs; [
 	home-manager
+    nix-prefetch-git
 	git
 	wget
 	curl
