@@ -1,11 +1,6 @@
 { pkgs, home-manager,...}:
 {
 
-home = {
-    username = "matt";
-    homeDirectory = "/home/matt";
-};
-
 # Fetch and clone the Neovim config repository
 home.file.".config/nvim".source = pkgs.fetchFromGitHub {
 	owner = "TypicalUsername-ai";

@@ -1,6 +1,13 @@
 {config, pkgs, ... }:
 {
 
+
+home = {
+    username = "matt";
+    homeDirectory = "/home/matt";
+};
+
+
     imports = [ ./modules/nvim.nix ];
   # basic configuration of git, please change to your own
   programs.git = {
