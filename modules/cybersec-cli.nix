@@ -9,6 +9,8 @@ environment.systemPackages = with pkgs; [
     syft
     grype
     openvpn
+    inetutils
+    netcat
 ];
 
 environment.variables.EDITOR = "nvim";
