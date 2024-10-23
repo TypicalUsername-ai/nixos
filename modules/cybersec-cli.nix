@@ -11,6 +11,8 @@ environment.systemPackages = with pkgs; [
     openvpn
     inetutils
     netcat
+    gobuster
+    mitmproxy
 ];
 
 environment.variables.EDITOR = "nvim";
