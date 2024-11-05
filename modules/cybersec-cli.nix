@@ -13,6 +13,7 @@ environment.systemPackages = with pkgs; [
     netcat
     gobuster
     mitmproxy
+    tcpdump
 ];
 
 environment.variables.EDITOR = "nvim";
