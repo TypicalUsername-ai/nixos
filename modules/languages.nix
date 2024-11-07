@@ -4,13 +4,15 @@
 
 environment.systemPackages = with pkgs; [
     ## Javascript / Typescript
-	deno
+    deno
     ## rust
-	rustup
+    rustup
     ## python
-	python3
+    python3
     ## c++
     clang
+    ## markdown
+    vale
 ];
 
 environment.variables.EDITOR = "nvim";
