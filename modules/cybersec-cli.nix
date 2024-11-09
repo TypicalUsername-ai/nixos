@@ -14,6 +14,7 @@ environment.systemPackages = with pkgs; [
     gobuster
     mitmproxy
     tcpdump
+    openssl
 ];
 
 environment.variables.EDITOR = "nvim";
