@@ -1,11 +1,18 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
 
-environment.systemPackages = with pkgs; [
-	neovim
-	docker
-];
+  environment.systemPackages = with pkgs; [
+    neovim
+    docker
+    bacon
+  ];
 
-environment.variables.EDITOR = "nvim";
+  environment.variables.EDITOR = "nvim";
 }
