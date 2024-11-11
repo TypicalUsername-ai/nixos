@@ -1,38 +1,36 @@
-{config, pkgs, ... }:
+{ config, pkgs, ... }:
 {
 
-
-home = {
+  home = {
     username = "matt";
     homeDirectory = "/home/matt";
-};
+  };
 
-
-    imports = [ ./modules/nvim.nix ];
+  imports = [ ./modules/nvim.nix ];
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
     userName = "TypicalUsername-ai";
     userEmail = "mati.domalewski@gmail.com";
     aliases = {
-            s = "status";
-            c = "checkout";
-            b = "branch";
-        };
+      s = "status";
+      c = "checkout";
+      b = "branch";
+    };
   };
 
   programs.zoxide = {
-      enable = true;
-        enableBashIntegration = true;
-      };
-
-programs.btop = {
     enable = true;
-    };
+    enableBashIntegration = true;
+  };
 
-services.ssh-agent = {
+  programs.btop = {
     enable = true;
-    };
+  };
+
+  services.ssh-agent = {
+    enable = true;
+  };
 
   # starship - an customizable prompt for any shell
   programs.starship = {
@@ -51,13 +49,13 @@ services.ssh-agent = {
     enableCompletion = true;
     # TODO add your custom bashrc here
     bashrcExtra = ''
-      export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
-      echo Hello, You!
-            if [ "$SHLVL" == "1" ]; then
-          fastfetch
-          eval "$(ssh-agent)"
-          ssh-add $HOME/.ssh/id_ed25519
-    fi
+        export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
+        echo Hello, You!
+              if [ "$SHLVL" == "1" ]; then
+            fastfetch
+            eval "$(ssh-agent)"
+            ssh-add $HOME/.ssh/id_ed25519
+      fi
     '';
 
     # set some aliases, feel free to add more or remove some

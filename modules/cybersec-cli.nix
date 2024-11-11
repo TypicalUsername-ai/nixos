@@ -1,8 +1,14 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
 
-environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     nmap
     dig
     torsocks
@@ -15,7 +21,7 @@ environment.systemPackages = with pkgs; [
     mitmproxy
     tcpdump
     openssl
-];
+  ];
 
-environment.variables.EDITOR = "nvim";
+  environment.variables.EDITOR = "nvim";
 }

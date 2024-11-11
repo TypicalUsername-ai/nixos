@@ -1,8 +1,14 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
 
-environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     ## Javascript / Typescript
     deno
     ## rust
@@ -13,7 +19,11 @@ environment.systemPackages = with pkgs; [
     clang
     ## markdown
     vale
-];
+    ## lua style formatting
+    stylua
+    ## nix style formatting
+    nixfmt-rfc-style
+  ];
 
-environment.variables.EDITOR = "nvim";
+  environment.variables.EDITOR = "nvim";
 }

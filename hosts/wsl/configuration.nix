@@ -5,38 +5,44 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
-  ./hardware-configuration.nix
-  ../../modules/terminal-utils.nix
-  ../../modules/languages.nix
-  ../../modules/devtools.nix
-  ../../modules/cybersec-cli.nix
-  inputs.nixos-wsl.nixosModules.wsl
+    ./hardware-configuration.nix
+    ../../modules/terminal-utils.nix
+    ../../modules/languages.nix
+    ../../modules/devtools.nix
+    ../../modules/cybersec-cli.nix
+    inputs.nixos-wsl.nixosModules.wsl
     # include NixOS-WSL modules
   ];
 
   users.users.matt = {
-	isNormalUser = true;
-	home = "/home/matt";
-	extraGroups = [ "wheel" ];
+    isNormalUser = true;
+    home = "/home/matt";
+    extraGroups = [ "wheel" ];
 
   };
 
-  wsl = { 
-  enable = true;
-  defaultUser = "matt";
-  docker-desktop = {
-        enable = true;
-      };
+  wsl = {
+    enable = true;
+    defaultUser = "matt";
+    docker-desktop = {
+      enable = true;
+    };
   };
 
-nix.settings.experimental-features = [ 
-	"nix-command"
-	 "flakes"
-];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

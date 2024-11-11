@@ -5,29 +5,35 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
 
-environment.systemPackages = with pkgs; [
-	home-manager
+  environment.systemPackages = with pkgs; [
+    home-manager
     nix-prefetch-git
     unzip
-	git
-	wget
-	curl
-	gitui
-	eza
-	bat
-	dust
-	starship
-	fastfetch
-	zoxide
-	starship
-	fzf
-	ripgrep
+    git
+    wget
+    curl
+    gitui
+    eza
+    bat
+    dust
+    starship
+    fastfetch
+    zoxide
+    starship
+    fzf
+    ripgrep
     zellij
-];
+  ];
 
-environment.variables.EDITOR = "nvim";
+  environment.variables.EDITOR = "nvim";
 }
