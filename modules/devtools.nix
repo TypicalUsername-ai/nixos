@@ -10,7 +10,8 @@
 
   environment.systemPackages = with pkgs; [
     neovim
-    docker
+    scc
+    ## docker
     ## Rust-specific consider moving or abstracting to option TODO
     bacon
     cargo-tarpaulin
