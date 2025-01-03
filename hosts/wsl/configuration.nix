@@ -25,11 +25,14 @@
     # include NixOS-WSL modules
   ];
 
+  environment.systemPackages = with pkgs; [
+    wl-clipboard
+  ];
+
   users.users.matt = {
     isNormalUser = true;
     home = "/home/matt";
     extraGroups = [ "wheel" ];
-
   };
 
   wsl = {
