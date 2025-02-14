@@ -55,6 +55,7 @@
             fastfetch
             eval "$(ssh-agent)"
             ssh-add $HOME/.ssh/id_ed25519
+            ssh-add $HOME/.ssh/tor_ed25519
       fi
     '';
 
