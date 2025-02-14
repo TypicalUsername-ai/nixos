@@ -27,6 +27,7 @@
 
   environment.systemPackages = with pkgs; [
     wl-clipboard
+    mold
   ];
 
   users.users.matt = {

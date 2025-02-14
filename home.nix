@@ -76,6 +76,11 @@
     };
   };
 
+  home.file.".cargo/config.toml".text = ''
+    [target.x86_64-unknown-linux-gnu]
+    linker = "clang"
+    rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}"]
+  '';
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new home Manager release introduces backwards
