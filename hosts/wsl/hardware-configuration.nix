@@ -17,7 +17,7 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/lib/modules/5.15.153.1-microsoft-standard-WSL2" = {
+  fileSystems."/lib/modules/5.15.167.4-microsoft-standard-WSL2" = {
     device = "none";
     fsType = "overlay";
   };
@@ -53,15 +53,15 @@
     fsType = "overlay";
   };
 
+  fileSystems."/mnt/wslg/doc" = {
+    device = "none";
+    fsType = "overlay";
+  };
+
   fileSystems."/tmp/.X11-unix" = {
     device = "/mnt/wslg/.X11-unix";
     fsType = "none";
     options = [ "bind" ];
-  };
-
-  fileSystems."/mnt/wslg/doc" = {
-    device = "none";
-    fsType = "overlay";
   };
 
   fileSystems."/mnt/c" = {
@@ -80,7 +80,7 @@
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/a2128dfb-6cbd-44ad-a5bb-ab28d267246c"; }
+    { device = "/dev/disk/by-uuid/752454d9-efbf-400c-a330-2663f71728ce"; }
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
