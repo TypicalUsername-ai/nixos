@@ -7,12 +7,13 @@
 }:
 
 {
-
+  nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
   environment.systemPackages = with pkgs; [
     ## Javascript / Typescript
     deno
     ## rust
-    rustup
+    rust-bin.stable.latest.default
+    rust-analyzer
     ## python
     python3
     ## c++
