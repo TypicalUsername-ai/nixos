@@ -32,7 +32,7 @@
     ];
     extraLuaConfig = ''
             	require("config.keymaps")
-      	reuire("config.options")
+      	require("config.options")
       	vim.g.mapleader = " " -- Need to set leader before lazy for correct keybindings
           	require("lazy").setup({
             		spec = {
