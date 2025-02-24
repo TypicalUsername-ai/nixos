@@ -26,7 +26,6 @@
     eza
     bat
     dust
-    starship
     fastfetch
     zoxide
     starship
