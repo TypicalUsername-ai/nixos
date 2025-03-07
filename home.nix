@@ -12,6 +12,9 @@
     enable = true;
     userName = "TypicalUsername-ai";
     userEmail = "mati.domalewski@gmail.com";
+    extraConfig = {
+      init.defaultBranch = "main";
+    };
     aliases = {
       s = "status";
       c = "checkout";
