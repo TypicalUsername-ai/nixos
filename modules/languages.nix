@@ -16,6 +16,7 @@
     rust-analyzer
     ## python
     python3
+    ruff
     ## c++
     clang
     ## markdown
