@@ -5,7 +5,7 @@
   home.file.".config/nvim".source = pkgs.fetchFromGitHub {
     owner = "TypicalUsername-ai";
     repo = "neovim-setup";
-    rev = "v1.2.4";
+    rev = "v1.2.5";
     sha256 = "sha256-xUVPUxdVLUsuK74q8LoOGu6FdooMo7nDY3SsP9/PMLo=";
   };
 
