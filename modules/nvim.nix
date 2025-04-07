@@ -6,7 +6,7 @@
     owner = "TypicalUsername-ai";
     repo = "neovim-setup";
     rev = "v1.2.5";
-    sha256 = "sha256-xUVPUxdVLUsuK74q8LoOGu6FdooMo7nDY3SsP9/PMLo=";
+    sha256 = "sha256-Pi97T1ig+LY+zKDkLZvfDcMskFZU+qHLbg69ISwBEbs=";
   };
 
   programs.neovim = {
