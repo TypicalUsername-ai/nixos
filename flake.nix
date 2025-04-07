@@ -40,6 +40,23 @@
           }
         ];
       };
+      nixosConfigurations.rpi-homelab = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./hosts/rpi-homelab/configuration.nix
+          #        ({pkgs, ... }): {
+          #                   nixpkgs.overlays = [ rust-overlay.overlays.default ];
+          #                   environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
+          #             }
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.users.matt = import ./home.nix;
+          }
+        ];
+      };
+
     };
 
 }
