@@ -35,8 +35,6 @@
 
   environment.systemPackages = with pkgs; [
     mold
-    noip
-
   ];
 
   users.users.matt = {
