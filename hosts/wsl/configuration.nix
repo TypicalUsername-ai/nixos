@@ -21,6 +21,7 @@
     ../../modules/devtools.nix
     ../../modules/cybersec-cli.nix
     ../../modules/containers.nix
+    ../../modules/python.nix
     inputs.nixos-wsl.nixosModules.wsl
     # include NixOS-WSL modules
   ];
