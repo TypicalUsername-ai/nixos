@@ -21,6 +21,7 @@
     mitmproxy
     tcpdump
     openssl
+    metasploit
   ];
 
   environment.variables.EDITOR = "nvim";
