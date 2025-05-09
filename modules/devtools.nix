@@ -9,7 +9,7 @@
 {
 
   environment.systemPackages = with pkgs; [
-    neovim
+    # neovim already in home.nix
     scc
     ## docker
     ## Rust-specific consider moving or abstracting to option TODO
