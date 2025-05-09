@@ -5,8 +5,8 @@
   home.file.".config/nvim".source = pkgs.fetchFromGitHub {
     owner = "TypicalUsername-ai";
     repo = "neovim-setup";
-    rev = "v1.2.5";
-    sha256 = "sha256-Pi97T1ig+LY+zKDkLZvfDcMskFZU+qHLbg69ISwBEbs=";
+    rev = "v1.2.6";
+    sha256 = "sha256-pxskfzBpVSxrRDPjwu9Q3PSxpHN0imwAd3F6n5XV3Gk=";
   };
 
   programs.neovim = {
@@ -31,7 +31,7 @@
       lazy-nvim
     ];
     extraLuaConfig = ''
-            	require("config.keymaps")
+        require("config.keymaps")
       	require("config.options")
       	vim.g.mapleader = " " -- Need to set leader before lazy for correct keybindings
           	require("lazy").setup({
