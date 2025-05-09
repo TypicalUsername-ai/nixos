@@ -14,9 +14,9 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/terminal-utils.nix
-    ../../modules/languages.nix
-    ../../modules/devtools.nix
-    ../../modules/cybersec-cli.nix
+    #../../modules/languages.nix
+    #../../modules/devtools.nix
+    #../../modules/cybersec-cli.nix
     ../../modules/containers.nix
   ];
 
@@ -65,7 +65,7 @@
       # Note: The private key can also be included inline via the privateKey option,
       # but this makes the private key world-readable; thus, using privateKeyFile is
       # recommended.
-      privateKeyFile = "~/wireguard/private_key";
+      privateKeyFile = "/home/matt/wireguard/private_key";
 
       peers = [
         # List of allowed peers.
@@ -80,6 +80,17 @@
       ];
     };
   };
+
+# Dynamic DNS systemd service
+    systemd.services = {
+    dynamic-dns-updater = {
+      path = [
+        pkgs.curl
+      ];
+      script = "/home/matt/noip/update.sh";
+      startAt = "hourly";
+    };
+    };
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
