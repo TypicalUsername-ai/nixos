@@ -27,7 +27,8 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    wl-clipboard
+    wayclip
+    sshfs
     mold
   ];
 
