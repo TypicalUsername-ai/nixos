@@ -20,6 +20,7 @@ let
     ps.matplotlib
     ps.pytorch
     ps.requests
+    ps.python-lsp-server
   ]);
 in
 {
