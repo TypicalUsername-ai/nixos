@@ -30,17 +30,25 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
-  ## wireguard config from [nixos docs]()
+  ## wireguard and firewall config from [nixos docs]()
   # enable NAT
-  networking.nat.enable = true;
-  networking.nat.externalInterface = "end0";
-  networking.nat.internalInterfaces = [ "wg0" ];
-  networking.firewall = {
-    allowedUDPPorts = [ 51820 ];
-    allowedTCPPorts = [
-        80
-        443
-    ];
+  networking = {
+      nat = {
+          enable = true;
+          externalInterface = "end0";
+          internalInterfaces = [ "wg0" ];
+      };
+      firewall = {
+          enable = true;
+          allowedUDPPorts = [
+              51820 # wireguard
+          ];
+          allowedTCPPorts = [
+              22 # ssh
+              80 # http
+              443 # https
+          ];
+      };
   };
 
   networking.wireguard.enable = true;
@@ -86,15 +94,15 @@
   };
 
 # Dynamic DNS systemd service
-    systemd.services = {
-    dynamic-dns-updater = {
-      path = [
-        pkgs.curl
-      ];
-      script = "/home/matt/noip/update.sh";
-      startAt = "hourly";
-    };
-    };
+  systemd.services = {
+      dynamic-dns-updater = {
+          path = [
+              pkgs.curl
+          ];
+          script = "/home/matt/noip/update.sh";
+          startAt = "hourly";
+      };
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
@@ -123,14 +131,6 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.fail2ban.enable = true;
-
-  # firewall configuration
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [
-      22 # ssh server
-    ];
-  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
