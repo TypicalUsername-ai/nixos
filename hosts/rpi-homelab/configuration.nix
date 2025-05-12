@@ -37,6 +37,10 @@
   networking.nat.internalInterfaces = [ "wg0" ];
   networking.firewall = {
     allowedUDPPorts = [ 51820 ];
+    allowedTCPPorts = [
+        80
+        443
+    ];
   };
 
   networking.wireguard.enable = true;
