@@ -77,7 +77,7 @@
       grep = "rg";
       python = "python3";
       dc = "docker compose";
-      shellfind = "cat ~/.bash_history | fzf | sh";
+      shellfind = "cat ~/.bash_history | fzf | echo";
       cd = "z";
       cdi = "zi";
     };
