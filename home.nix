@@ -58,7 +58,6 @@
     bashrcExtra = ''
         [[ $- == *i* ]] || return
         export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
-        echo Hello, You!
               if [ "$SHLVL" == "1" ]; then
             fastfetch
             eval "$(ssh-agent)"
@@ -79,7 +78,7 @@
       grep = "rg";
       python = "python3";
       dc = "docker compose";
-      shellfind = "cat ~/.bash_history | fzf | sh";
+      shellfind = "cat ~/.bash_history | fzf | echo";
       cd = "z";
       cdi = "zi";
     };
