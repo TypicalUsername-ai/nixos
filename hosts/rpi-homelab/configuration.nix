@@ -105,18 +105,18 @@
   };
 
 # virtualisation socket settings
-  virtualisation.podman.networkSocket = {
-      enable = true;
-      openFirewall = true;
-      port = 2376;
-      listenAddress = "homelab.local";
-      server = "ghostunnel";
-      tls = {
-          cacert = "/home/matt/podman_tls/authority.crt";
-          key = "/home/matt/podman_tls/ca.key";
-          cert = "/home/matt/podman_tls/socket_cert.crt";
-      };
-  };
+  #virtualisation.podman.networkSocket = {
+  #    enable = true;
+  #    openFirewall = true;
+  #    port = 2376;
+  #    listenAddress = "0.0.0.0";
+  #    server = "ghostunnel";
+      #tls = {
+      #    cacert = "/home/matt/podman_tls/authority.pem";
+      #    key = "/home/matt/podman_tls/ca.key";
+      #    cert = "/home/matt/podman_tls/socket_cert.pem";
+      #};
+  #};
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
