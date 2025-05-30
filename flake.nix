@@ -36,7 +36,10 @@
           #             }
           home-manager.nixosModules.home-manager
           {
-            home-manager.users.matt = import ./home.nix;
+            home-manager = {
+              extraSpecialArgs = { inherit inputs; };
+              users.matt = import ./home.nix;
+            };
           }
         ];
       };
