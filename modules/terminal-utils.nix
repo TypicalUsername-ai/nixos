@@ -18,6 +18,7 @@
   environment.systemPackages = with pkgs; [
     home-manager
     nix-prefetch-git
+    nix-tree
     unzip
     git
     wget
