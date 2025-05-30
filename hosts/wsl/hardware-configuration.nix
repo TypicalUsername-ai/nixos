@@ -90,5 +90,20 @@
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.eth0.useDHCP = lib.mkDefault true;
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  #moved to verbose for optimizations
+  #nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
+  nix.settings.system-features = [
+    #"nixos-test" don't run tests
+    "benchmark"
+    "big-parallel"
+    "kvm"
+    "gccarch-tigerlake"
+  ];
+
+  nixpkgs.hostPlatform = {
+    #gcc.arch = "tigerlake";
+    #gcc.tune = "tigerlake";
+    system = "x86_64-linux";
+  };
 }
