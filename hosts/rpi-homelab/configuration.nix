@@ -122,6 +122,7 @@
   time.timeZone = "Europe/Warsaw";
 
   environment.systemPackages = with pkgs; [
+    openssl
     mold
     # add wireguard packages
     # wireguard-go #!! broken
