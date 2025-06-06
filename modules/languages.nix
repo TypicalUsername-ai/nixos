@@ -11,6 +11,7 @@
   environment.systemPackages = with pkgs; [
     ## Javascript / Typescript
     deno
+    svelte-language-server
     ## rust
     rust-bin.stable.latest.default
     rust-analyzer
