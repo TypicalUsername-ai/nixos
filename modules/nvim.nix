@@ -10,8 +10,8 @@
   home.file.".config/nvim".source = pkgs.fetchFromGitHub {
     owner = "TypicalUsername-ai";
     repo = "neovim-setup";
-    rev = "v1.2.7";
-    sha256 = "sha256-pxskfzBpVSxrRDPjwu9Q3PSxpHN0imwAd3F6n5XV3Gk=";
+    rev = "v1.2.9";
+    sha256 = "sha256-kqNhAYasTYBT/jRJx8qA3dtdFqji4XVyTXmUF2/ujFA=";
   };
 
   programs.neovim = {
@@ -32,9 +32,11 @@
       telescope-nvim
       tokyonight-nvim
       nvim-treesitter.withAllGrammars
+      nvim-treesitter-parsers.svelte # not included in treesitter i gues??
       trouble-nvim
       which-key-nvim
       lazy-nvim
+
     ];
     extraLuaConfig = ''
       vim.g.mapleader = " " -- Need to set leader before lazy for correct keybindings
