@@ -32,6 +32,9 @@
     mold
   ];
 
+  services.xserver.videoDrivers = [ "opencl" ];
+  hardware.opengl.extraPackages = [ pkgs.intel-compute-runtime ];
+
   users.users.matt = {
     isNormalUser = true;
     home = "/home/matt";

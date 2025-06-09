@@ -22,6 +22,7 @@
     tcpdump
     openssl
     metasploit
+    hashcat
   ];
 
   environment.variables.EDITOR = "nvim";
