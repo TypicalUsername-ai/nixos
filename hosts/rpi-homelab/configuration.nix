@@ -36,13 +36,9 @@
       nat = {
           enable = true;
           externalInterface = "end0";
-          internalInterfaces = [ "wg0" ];
       };
       firewall = {
           enable = true;
-          allowedUDPPorts = [
-              51820 # wireguard
-          ];
           allowedTCPPorts = [
               22 # ssh
               80 # http
@@ -51,48 +47,7 @@
       };
   };
 
-  networking.wireguard.enable = true;
-  networking.wireguard.interfaces = {
-    # "wg0" is the network interface name. You can name the interface arbitrarily.
-    wg0 = {
-      # Determines the IP address and subnet of the server's end of the tunnel interface.
-      ips = [ "10.100.0.1/24" ];
-
-      # The port that WireGuard listens to. Must be accessible by the client.
-      listenPort = 51820;
-
-      # This allows the wireguard server to route your traffic to the internet and hence be like a VPN
-      # For this to work you have to set the dnsserver IP of your router (or dnsserver of choice) in your clients
-      postSetup = ''
-        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE
-      '';
-
-      # This undoes the above command
-      postShutdown = ''
-        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE
-      '';
-
-      # Path to the private key file.
-      #
-      # Note: The private key can also be included inline via the privateKey option,
-      # but this makes the private key world-readable; thus, using privateKeyFile is
-      # recommended.
-      privateKeyFile = "/home/matt/wireguard/private_key";
-
-      peers = [
-        # List of allowed peers.
-        {
-          # SM 55a PHONE
-          # Public key of the peer (not a file path).
-          publicKey = "eQNsO1CDUkVJuobv68Ep270KoSpw1hXgVAWoFsQ2D3Y=";
-          # List of IPs assigned to this peer within the tunnel subnet. Used to configure routing.
-          allowedIPs = [ "10.100.0.2/32" ];
-        }
-
-      ];
-    };
-  };
-
+  
 # Dynamic DNS systemd service
   systemd.services = {
       dynamic-dns-updater = {
@@ -105,18 +60,18 @@
   };
 
 # virtualisation socket settings
-  #virtualisation.podman.networkSocket = {
-  #    enable = true;
-  #    openFirewall = true;
-  #    port = 2376;
-  #    listenAddress = "0.0.0.0";
-  #    server = "ghostunnel";
-      #tls = {
-      #    cacert = "/home/matt/podman_tls/authority.pem";
-      #    key = "/home/matt/podman_tls/ca.key";
-      #    cert = "/home/matt/podman_tls/socket_cert.pem";
-      #};
-  #};
+  virtualisation.podman.networkSocket = {
+      enable = true;
+      openFirewall = true;
+      port = 2376;
+      listenAddress = "0.0.0.0";
+      server = "ghostunnel";
+      tls = {
+          cacert = "/home/matt/podman_tls/ca.pem";
+          key = "/home/matt/podman_tls/server-key.pem";
+          cert = "/home/matt/podman_tls/server-cert.pem";
+      };
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
@@ -124,16 +79,15 @@
   environment.systemPackages = with pkgs; [
     openssl
     mold
-    # add wireguard packages
-    # wireguard-go #!! broken
-    # pkgs.linuxKernel.packages.linux_5_4.wireguard
-    wireguard-tools
   ];
 
   users.users.matt = {
     isNormalUser = true;
     home = "/home/matt";
-    extraGroups = [ "wheel" ];
+    extraGroups = [ 
+        "wheel" #sudo
+        "podman" #podman socket access
+        ];
   };
 
   nix.settings.experimental-features = [
@@ -145,6 +99,10 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.openssh.settings = {
+      PasswordAuthentication = false;
+      PermitRootLogin = "without-password";
+      };
   services.fail2ban.enable = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
