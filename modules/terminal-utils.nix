@@ -34,6 +34,7 @@
     ripgrep
     zellij
     mprocs
+    jq
   ];
 
   environment.variables.EDITOR = "nvim";
