@@ -33,8 +33,9 @@
     fzf
     ripgrep
     zellij
-    mprocs
     jq
+    # mprocs not used atm
+    uutils-coreutils-noprefix
   ];
 
   environment.variables.EDITOR = "nvim";
