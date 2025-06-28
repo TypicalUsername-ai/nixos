@@ -30,6 +30,9 @@
     wayclip
     sshfs
     mold
+    uutils-coreutils-noprefix
+    jujutsu
+    lazyjj
   ];
 
   services.xserver.videoDrivers = [ "opencl" ];
@@ -41,11 +44,18 @@
     extraGroups = [ "wheel" ];
   };
 
+  security = {
+    sudo-rs = {
+      enable = true;
+      execWheelOnly = true;
+    };
+  };
+
   wsl = {
     enable = true;
     defaultUser = "matt";
     docker-desktop = {
-      enable = true;
+      enable = false;
     };
   };
 
