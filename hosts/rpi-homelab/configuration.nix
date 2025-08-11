@@ -51,7 +51,9 @@
 # Dynamic DNS systemd service
 
 # virtualisation socket settings
-  virtualisation.podman.networkSocket = {
+  virtualisation.podman = {
+      dockerSocket.enable = true;
+      networkSocket = {
       enable = true;
       openFirewall = true;
       port = 2376;
@@ -62,7 +64,7 @@
           key = "/home/matt/podman_tls/server-key.pem";
           cert = "/home/matt/podman_tls/server-cert.pem";
       };
-  };
+  };};
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
@@ -71,6 +73,11 @@
     openssl
     mold
   ];
+
+  services.netbird = {
+      enable = true;
+      ui.enable = false;
+  };
 
   users.users.matt = {
     isNormalUser = true;
