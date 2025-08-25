@@ -12,6 +12,7 @@
     nmap
     dig
     torsocks
+    tor
     syft
     grype
     openvpn
