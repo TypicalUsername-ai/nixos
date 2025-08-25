@@ -16,6 +16,8 @@
     bacon
     cargo-tarpaulin
     cargo-nextest
+    #
+    kanidm
   ];
 
   environment.variables.EDITOR = "nvim";
