@@ -59,6 +59,11 @@
     };
   };
 
+  services.netbird = {
+    enable = true;
+    ui.enable = false;
+  };
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
