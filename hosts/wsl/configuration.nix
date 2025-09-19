@@ -24,6 +24,7 @@
     ../../modules/python.nix
     inputs.nixos-wsl.nixosModules.wsl
     # include NixOS-WSL modules
+    inputs.nvim-batteries.nixosModules.default
   ];
 
   environment.systemPackages = with pkgs; [

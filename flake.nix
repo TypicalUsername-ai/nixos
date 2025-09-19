@@ -13,15 +13,20 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvim-batteries = {
+      url = "github:TypicalUsername-ai/neovim-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      home-manager,
+      nixos-wsl,
       rust-overlay,
-      ...
+      home-manager,
+      nvim-batteries,
     }@inputs:
     {
       nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
@@ -30,10 +35,6 @@
         };
         modules = [
           ./hosts/wsl/configuration.nix
-          #        ({pkgs, ... }): {
-          #                   nixpkgs.overlays = [ rust-overlay.overlays.default ];
-          #                   environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
-          #             }
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -49,10 +50,6 @@
         };
         modules = [
           ./hosts/rpi-homelab/configuration.nix
-          #        ({pkgs, ... }): {
-          #                   nixpkgs.overlays = [ rust-overlay.overlays.default ];
-          #                   environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
-          #             }
           home-manager.nixosModules.home-manager
           {
             home-manager.users.matt = import ./home.nix;

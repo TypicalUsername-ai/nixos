@@ -1,12 +1,27 @@
-{ pkgs, home-manager, ... }@inputs:
 {
+  pkgs,
+  config,
+  lib,
+  options,
+  inputs,
+  ...
+#specialArgs,
+#modulesPath,
+#_class,
+#_prefix,
+}:
+{
+
+  programs.neovim = {
+    enable = false;
+    #    package = pkgs.matts-neovim;
+  };
 
   home = {
     username = "matt";
     homeDirectory = "/home/matt";
   };
 
-  imports = [ ./modules/nvim.nix ];
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
