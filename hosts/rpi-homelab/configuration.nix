@@ -49,6 +49,34 @@
 
   
 # Dynamic DNS systemd service
+#  systemd.services = {
+#      dynamic-dns-updater = {
+#          path = [
+#              pkgs.curl
+#          ];
+#          script = "/home/matt/noip/update.sh";
+#          startAt = "hourly";
+#      };
+#  };
+
+## systemd homelab restore service
+systemd.services.homelab-restore = {
+        enable = true;
+        description = "start the necessary homelab containers on reboot";
+        path = [
+            pkgs.podman
+            pkgs.docker-compose
+            "/home/matt"
+        ];
+        script = "/home/matt/homelab/restore.sh";
+        wantedBy = ["multi-user.target"];
+        serviceConfig = {
+            Type = "simple";
+            User = "root";
+            Group = "root";
+            PermissionsStartOnly = true;
+            };
+    };
 
 # virtualisation socket settings
   virtualisation.podman = {
