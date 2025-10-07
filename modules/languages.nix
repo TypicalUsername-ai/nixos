@@ -17,15 +17,10 @@
     rust-analyzer
     ## python
     python3
-    ruff
     ## c++
     clang
-    ## markdown
-    vale
-    ## lua style formatting
-    stylua
-    ## nix style formatting
-    nixfmt-rfc-style
+    ## typst
+    typst
   ];
 
   environment.variables.EDITOR = "nvim";
