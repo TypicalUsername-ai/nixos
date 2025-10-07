@@ -16,6 +16,7 @@
     nvim-batteries = {
       url = "github:TypicalUsername-ai/neovim-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.rust-overlay.follows = "rust-overlay";
     };
   };
 

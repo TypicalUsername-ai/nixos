@@ -24,16 +24,17 @@
     ../../modules/python.nix
     inputs.nixos-wsl.nixosModules.wsl
     # include NixOS-WSL modules
-    inputs.nvim-batteries.nixosModules.default
+    #inputs.nvim-batteries.nixosModules.default
   ];
 
   environment.systemPackages = with pkgs; [
-    wayclip
+    wl-clipboard
     sshfs
     mold
     uutils-coreutils-noprefix
     jujutsu
     lazyjj
+    inputs.nvim-batteries.packages.${pkgs.stdenv.system}.default
   ];
 
   services.xserver.videoDrivers = [ "opencl" ];
@@ -61,7 +62,7 @@
   };
 
   services.netbird = {
-    enable = true;
+    enable = false;
     ui.enable = false;
   };
 
