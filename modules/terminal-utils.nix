@@ -21,7 +21,6 @@
     nix-tree
     unzip
     git
-    wget
     curl
     gitui
     eza
@@ -36,6 +35,8 @@
     jq
     # mprocs not used atm
     uutils-coreutils-noprefix
+    fd
+    cheat
   ];
 
   environment.variables.EDITOR = "nvim";
