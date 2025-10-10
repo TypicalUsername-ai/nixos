@@ -34,6 +34,7 @@
     uutils-coreutils-noprefix
     jujutsu
     lazyjj
+    tzdata
     inputs.nvim-batteries.packages.${pkgs.stdenv.system}.default
   ];
 
