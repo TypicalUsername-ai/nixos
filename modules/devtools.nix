@@ -17,7 +17,7 @@
     cargo-tarpaulin
     cargo-nextest
     #
-    kanidm
+    kanidm_1_7
   ];
 
   environment.variables.EDITOR = "nvim";
