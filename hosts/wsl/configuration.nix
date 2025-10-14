@@ -39,7 +39,9 @@
   ];
 
   services.xserver.videoDrivers = [ "opencl" ];
-  hardware.opengl.extraPackages = [ pkgs.intel-compute-runtime ];
+  hardware.graphics.extraPackages = [
+    pkgs.intel-compute-runtime
+  ];
 
   users.users.matt = {
     isNormalUser = true;
