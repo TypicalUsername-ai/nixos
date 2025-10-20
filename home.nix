@@ -20,15 +20,19 @@
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName = "TypicalUsername-ai";
-    userEmail = "mati.domalewski@gmail.com";
-    extraConfig = {
-      init.defaultBranch = "main";
-    };
-    aliases = {
-      s = "status";
-      c = "checkout";
-      b = "branch";
+    settings = {
+      user = {
+        name = "TypicalUsername-ai";
+        email = "mati.domalewski@gmail.com";
+      };
+      extraConfig = {
+        init.defaultBranch = "main";
+      };
+      alias = {
+        s = "status";
+        c = "checkout";
+        b = "branch";
+      };
     };
   };
 
