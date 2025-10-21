@@ -13,7 +13,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../modules/terminal-utils.nix
+../../modules/terminal-utils.nix
     #../../modules/languages.nix
     #../../modules/devtools.nix
     #../../modules/cybersec-cli.nix
@@ -103,8 +103,16 @@ systemd.services.homelab-restore = {
   ];
 
   services.netbird = {
-      enable = true;
-      ui.enable = false;
+        useRoutingFeatures = "both";
+        #enable = true;
+        #ui.enable = false;
+        clients.homelab = {
+                ui.enable = false;
+                interface = "wt0";
+                port = 51820;
+                openFirewall = true;
+                environment.NB_SETUP_KEY_FILE = "/home/matt/nb-key.pem";
+        };
   };
 
   users.users.matt = {
