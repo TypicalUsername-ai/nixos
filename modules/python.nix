@@ -18,7 +18,7 @@ let
     ps.polars
     ps.jupyter
     ps.matplotlib
-    ps.pytorch
+    ps.torch
     ps.requests
     ps.python-lsp-server
   ]);
