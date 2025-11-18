@@ -21,6 +21,8 @@
     clang
     ## typst
     typst
+    ## go
+    go
   ];
 
   environment.variables.EDITOR = "nvim";
