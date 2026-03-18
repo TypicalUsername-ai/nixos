@@ -18,6 +18,8 @@
     cargo-nextest
     #
     kanidm_1_8
+    # justfile support
+    just
   ];
 
   environment.variables.EDITOR = "nvim";
