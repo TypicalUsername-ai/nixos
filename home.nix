@@ -5,16 +5,31 @@
   options,
   inputs,
   ...
-#specialArgs,
-#modulesPath,
-#_class,
-#_prefix,
+  #specialArgs,
+  #modulesPath,
+  #_class,
+  #_prefix,
 }:
 {
 
   home = {
     username = "matt";
     homeDirectory = "/home/matt";
+  };
+
+  xdg = {
+    enable = true;
+    #sounds.enable = true;
+    portal = {
+      config.common.default = "*"; # due to xdg-desktop-portal 1.17 being reworked
+      enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-wlr
+      ];
+      #wlr = {
+      #enable = true;
+      #};
+    };
   };
 
   # basic configuration of git, please change to your own

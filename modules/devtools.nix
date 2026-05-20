@@ -17,7 +17,7 @@
     cargo-tarpaulin
     cargo-nextest
     #
-    kanidm_1_8
+    kanidm_1_10
     # justfile support
     just
   ];
