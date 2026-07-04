@@ -104,6 +104,7 @@
       ls = "eza";
       cat = "bat";
       du = "dust";
+      find = "fd";
       grep = "rg";
       python = "python3";
       dc = "docker compose";
